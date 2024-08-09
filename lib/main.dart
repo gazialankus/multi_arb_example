@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:multi_arb_example/current_language_provider.dart';
+import 'package:multi_arb_example/language_provider.dart';
 import 'package:multi_arb_example/tabbar_screen.dart';
+import 'package:flutter_gen/gen_l10n/home_localizations.dart';
+import 'package:flutter_gen/gen_l10n/settings_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,20 +15,23 @@ final class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = View.of(context).platformDispatcher.locale;
+
     return ChangeNotifierProvider(
-      create: (_) => CurrentLanguageProvider(),
-      child: Consumer<CurrentLanguageProvider>(
+      create: (_) => LanguageProvider(locale: locale),
+      child: Consumer<LanguageProvider>(
         builder: (context, state, child) {
           return MaterialApp(
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
             home: const TabbarScreen(),
             locale: state.currentLanguage,
-            localizationsDelegates:
-                CurrentLanguageProvider.localizationsDelegates,
-            supportedLocales: CurrentLanguageProvider.supportedLocales,
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              HomeLocalizations.delegate,
+              SettingsLocalizations.delegate,
+            ],
+            supportedLocales: LanguageProvider.supportedLocales,
           );
         },
       ),

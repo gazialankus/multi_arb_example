@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:multi_arb_example/current_language_provider.dart';
+import 'package:multi_arb_example/language_provider.dart';
 import 'package:provider/provider.dart';
 
 part 'settings_screen_widgets_part.dart';
 
 final class SettingsScreen extends StatelessWidget {
-  static const _langs = CurrentLanguageProvider.supportedLocales;
+  static const _langs = LanguageProvider.supportedLocales;
 
   const SettingsScreen({super.key});
 
@@ -15,14 +15,15 @@ final class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(context.settingsScreenTitle),
       ),
-      body: Consumer<CurrentLanguageProvider>(
+      body: Consumer<LanguageProvider>(
         builder: (context, state, child) {
           return ListView.builder(
             prototypeItem: const SizedBox(height: 50.0),
             itemCount: _langs.length,
             itemBuilder: (context, index) {
               return _ItemWidget(
-                isSelected: state.currentLanguage == _langs[index],
+                isSelected: state.currentLanguage.languageCode ==
+                    _langs[index].languageCode,
                 item: _langs[index],
                 onTap: () => _onTap(context, newLocale: _langs[index]),
               );
@@ -34,7 +35,7 @@ final class SettingsScreen extends StatelessWidget {
   }
 
   void _onTap(BuildContext context, {required Locale newLocale}) {
-    context.read<CurrentLanguageProvider>().currentLanguage = newLocale;
+    context.read<LanguageProvider>().currentLanguage = newLocale;
   }
 }
 

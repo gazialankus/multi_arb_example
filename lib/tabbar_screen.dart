@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multi_arb_example/current_language_provider.dart';
+import 'package:multi_arb_example/language_provider.dart';
 import 'package:multi_arb_example/home/home_screen.dart';
 import 'settings/settings_screen.dart';
 
