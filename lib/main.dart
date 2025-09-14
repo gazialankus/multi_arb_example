@@ -3,8 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:multi_arb_example/language_provider.dart';
 import 'package:multi_arb_example/tabbar_screen.dart';
-import 'package:flutter_gen/gen_l10n/home_localizations.dart';
-import 'package:flutter_gen/gen_l10n/settings_localizations.dart';
+import 'package:multi_arb_example/l10n/home/home_localizations.dart';
+import 'package:multi_arb_example/l10n/settings/settings_localizations.dart';
 
 void main() {
   runApp(const MyApp());

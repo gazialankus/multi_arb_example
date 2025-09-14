@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/home_localizations.dart';
-import 'package:flutter_gen/gen_l10n/settings_localizations.dart';
+import 'package:multi_arb_example/l10n/home/home_localizations.dart';
+import 'package:multi_arb_example/l10n/settings/settings_localizations.dart';
 
 final class LanguageProvider with ChangeNotifier {
   static const supportedLocales = [
@@ -27,14 +27,14 @@ extension Localization on BuildContext {
   SettingsLocalizations get settingsLocalizations =>
       SettingsLocalizations.of(this)!;
 
-  String get homeScreenTitle => homeLocalizations.home_screen_title;
+  String get homeScreenTitle => homeLocalizations.title;
   String get homeScreenContentText =>
       homeLocalizations.home_screen_label_content;
   String get homeScreenTabLabel => homeLocalizations.home_screen_tab_name_home;
 
   String get settingsScreenTabLabel =>
       settingsLocalizations.settings_screen_tab_name_settings;
-  String get settingsScreenTitle => settingsLocalizations.settings_screen_title;
+  String get settingsScreenTitle => settingsLocalizations.title;
   String get englishLanguageName =>
       settingsLocalizations.settings_screen_language_name_en;
   String get russianLanguageName =>
