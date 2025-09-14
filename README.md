@@ -1,3 +1,5 @@
+In this fork I demonstrated that we can have the exact same string across arb files and do not have to prefix them. So using "title" in both home and settings pages instead of "home_screen_title" and "settings_screen_title" is fine.
+
 # Flutter Tip: Organize Your Localization with Multiple ARB Files Per Language
 
 As your Flutter app grows, so does the complexity of managing its localization. Typically, translations are stored in a single Application Resource Bundle (*.arb) file, but this approach can become unwieldy as more content is added. The challenges of navigating a large ARB file, coupled with the risk of merge conflicts when multiple developers work on translations simultaneously, can slow down your development process.
